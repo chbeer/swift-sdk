@@ -925,9 +925,9 @@ public actor Server {
                 throw MCPError.internalError("Server was deallocated")
             }
 
-            guard await !self.isInitialized else {
-                throw MCPError.invalidRequest("Server is already initialized")
-            }
+//            guard await !self.isInitialized else {
+//                throw MCPError.invalidRequest("Server is already initialized")
+//            }
 
             // Call initialization hook if registered
             if let hook = initializeHook {
