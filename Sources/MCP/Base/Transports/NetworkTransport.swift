@@ -528,7 +528,9 @@ import Logging
                     completion: .contentProcessed { [weak self] error in
                         guard let self = self else { return }
 
-                        Task { @MainActor in
+                        Task { @MainActor [weak self] in
+                            guard let self = self else { return }
+                            
                             if !sendContinuationResumed.flag {
                                 sendContinuationResumed.flag = true
                                 if let error = error {
